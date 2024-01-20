@@ -3,14 +3,17 @@ import java.util.Scanner;
 public class GuessingGame {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        int rnds = 3; 
+        System.out.println("Welcome to the Number Guessing Game!");
+         
+        System.out.println("\nEnter the number of rounds you want to play");
+        int rnds=sc.nextInt(); 
         int maxAtt = 5;
         int totScore = 0;
 
-        System.out.println("Welcome to the Number Guessing Game!");
-        System.out.println("You have " + rnds + " rounds and " + maxAtt + " attempts per round.");
+       
+        System.out.println("\nYou have " + rnds + " rounds and " + maxAtt + " attempts per round.");
 
         for (int i = 1; i <= rnds; i++) {
             int randomNumber = (int) (Math.random() * 100) + 1; 
@@ -20,7 +23,7 @@ public class GuessingGame {
 
             while (guessCount < maxAtt) {
                 guessCount++;
-                int guess = scanner.nextInt();
+                int guess = sc.nextInt();
 
                 if (guess == randomNumber) {
                     int points = 10 - guessCount;
@@ -41,6 +44,6 @@ public class GuessingGame {
 
         System.out.println("\nGame over! Your total score is " + totScore + ".");
 
-        scanner.close();
+        sc.close();
     }
 }
